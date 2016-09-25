@@ -1,3 +1,6 @@
+# Mac stuff
+.DS_Store
+
 # Logs
 logs
 *.log
@@ -13,6 +16,9 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+
+# Documentation folder
+docs
 
 # nyc test coverage
 .nyc_output
