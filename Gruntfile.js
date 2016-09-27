@@ -1,10 +1,10 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     jshint: {
-      all: ['Gruntfile.js', 'index.js', 'test/**/*.spec.js']
+      all: ['Gruntfile.js', 'index.js', 'test/**/*.spec.js', 'lib/**/*.js']
     },
     watch: {
-      files: ['Gruntfile.js', 'index.js', 'test/**/*.spec.js'],
+      files: ['Gruntfile.js', 'index.js', 'test/**/*.spec.js', 'lib/**/*.js'],
       tasks: ['jshint']
     },
     mocha_istanbul: {
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
     },
     jsdoc : {
       dist : {
-        src: ['README.md', 'index.js'],
+        src: ['README.md', 'index.js', 'lib/**/*.js'],
         options: {
           destination: 'docs',
           template : "node_modules/ink-docstrap/template",

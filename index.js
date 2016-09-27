@@ -1,7 +1,9 @@
+var moment = require('moment');
+var TimeTraveler = require('./lib/time_traveler.js');
+
 module.exports = {
-  /*
-   *  This is test documentation
-   *  @param {string} title - The title of the book.
-   */
-  bar: function bar(){ console.log("hello world"); }
+  run: function (settings, callback){
+    var traveler = new TimeTraveler(settings);
+    traveler.run(callback);
+  }
 };
