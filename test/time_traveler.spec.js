@@ -61,7 +61,7 @@ describe('TimeTraveler', function(){
       var settings = {starts_at: "2016-10-31", steps: true};
       var traveler = new TimeTraveler(settings);
 
-      traveler.run.bind(function(dt){ counter++; }).should.Throw(Error);
+      traveler.run.bind(traveler, function(dt){ console.log("test"); }).should.Throw(Error, /Invalid TimeTraveler: ['steps must be an integer']/);
     });
 
     it('calls the given callback each interval', function(){
