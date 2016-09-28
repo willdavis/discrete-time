@@ -1,5 +1,4 @@
 var should = require('chai').should();
-var expect = require('chai').expect;
 var TimeTraveler = require('../lib/time_traveler.js');
 
 describe('TimeTraveler', function(){
