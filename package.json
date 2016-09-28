@@ -4,6 +4,8 @@
   "description": "Easily step through discrete time intervals, calling functions as you go!",
   "main": "index.js",
   "scripts": {
+    "preversion": "npm run lint && npm test && npm run coverage",
+    "postversion": "npm run changelog && git commit -am 'update changelog'",
     "lint": "grunt jshint",
     "test": "grunt mocha_istanbul",
     "coverage": "grunt istanbul_check_coverage",

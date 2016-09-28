@@ -1,6 +1,8 @@
 ## Change Log
 
-### upcoming (2016/09/28 05:49 +00:00)
+### v0.2.0 (2016/09/28 07:18 +00:00)
+- [54f844b](https://github.com/willdavis/discrete-time/commit/54f844bab19444909136cc1df60afa1c83c29f2f) test version bump (@willdavis)
+- [9fbd877](https://github.com/willdavis/discrete-time/commit/9fbd8779f00705c83845dbfd3bc9b25728ce9ea5) added github-changes too automate changelog creation (@willdavis)
 - [fb150a7](https://github.com/willdavis/discrete-time/commit/fb150a7edf0523738e7de86a078f5248e9eb1d46) added function to get TimeTraveler class (@willdavis)
 - [3113a1e](https://github.com/willdavis/discrete-time/commit/3113a1e1d81723b12083929b828d35ce0eae4ade) better documentation (@willdavis)
 - [450de49](https://github.com/willdavis/discrete-time/commit/450de493b56acb82f64eea55aa263b3ad9543373) added API docs badge to readme (@willdavis)
