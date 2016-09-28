@@ -1,4 +1,3 @@
-var moment = require('moment');
 var TimeTraveler = require('./lib/time_traveler.js');
 
 module.exports = {
