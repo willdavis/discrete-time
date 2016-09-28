@@ -2,6 +2,12 @@ var should = require('chai').should();
 var discrete_time = require('../index.js');
 
 describe('discrete-time', function(){
+  describe('#traveler', function(){
+    it('returns the TimeTraveler class', function(){
+      discrete_time.traveler.should.be.a("function");
+    });
+  });
+
   describe('#run(settings, callback)', function(){
     it('calls the TimeTraveler.run function', function(){
       var counter = 0;

@@ -21,5 +21,6 @@ function run(settings, callback){
 
 // export the discrete-time stuff
 module.exports = {
-  run: run
+  run: run,
+  traveler: TimeTraveler
 };
