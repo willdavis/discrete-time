@@ -1,6 +1,6 @@
 {
   "name": "discrete-time",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Easily step through discrete time intervals, calling functions as you go!",
   "main": "index.js",
   "scripts": {
