@@ -14,6 +14,54 @@ describe('TimeTraveler', function(){
     });
   });
 
+  describe("#step_forward()", function(){
+    it("should increment the current step by 1", function(){
+      var settings = {starts_at: "2016-10-31", time_units: "years"};
+      var traveler = new TimeTraveler(settings);
+
+      traveler.step_forward();
+      traveler.current.step.should.equal(1);
+
+      traveler.step_forward();
+      traveler.current.step.should.equal(2);
+    });
+
+    it("should increment the current time by 1 time unit", function(){
+      var settings = {starts_at: "2016-10-31", time_units: "years"};
+      var traveler = new TimeTraveler(settings);
+
+      traveler.step_forward();
+      traveler.current.time.format('YYYY MM DD').should.equal("2017 10 31");
+
+      traveler.step_forward();
+      traveler.current.time.format('YYYY MM DD').should.equal("2018 10 31");
+    });
+  });
+
+  describe("#step_backward()", function(){
+    it("should decrement the current step by 1", function(){
+      var settings = {starts_at: "2016-10-31", time_units: "years"};
+      var traveler = new TimeTraveler(settings);
+
+      traveler.step_backward();
+      traveler.current.step.should.equal(-1);
+
+      traveler.step_backward();
+      traveler.current.step.should.equal(-2);
+    });
+
+    it("should decrement the current time by 1 time unit", function(){
+      var settings = {starts_at: "2016-10-31", time_units: "years"};
+      var traveler = new TimeTraveler(settings);
+
+      traveler.step_backward();
+      traveler.current.time.format('YYYY MM DD').should.equal("2015 10 31");
+
+      traveler.step_backward();
+      traveler.current.time.format('YYYY MM DD').should.equal("2014 10 31");
+    });
+  });
+
   describe("#validate()", function(){
     it('should return an empty array if all settings are valid', function(){
       var settings = {starts_at: "2016-10-31", steps: 10, time_units: "days"};
