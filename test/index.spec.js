@@ -19,4 +19,16 @@ describe('discrete-time', function(){
       counter.should.equal(5);
     });
   });
+
+  describe('#runAsync(settings, callback)', function(){
+    it('calls the TimeTraveler.runAsync function', function(){
+      var counter = 0;
+      var settings = {starts_at: "2016-10-31", steps: 5, time_units: "days", time_scale: 1};
+      var callback = function(time){ counter++; };
+
+      discrete_time.runAsync(settings, callback).then(function() {
+        counter.should.equal(5);
+      });
+    });
+  });
 });

@@ -107,11 +107,12 @@ describe('TimeTraveler', function(){
     it('throws error if the TimeTraveler is not valid', function(){
       var settings = {starts_at: "2016-10-31", steps: true};
       var traveler = new TimeTraveler(settings);
+      var callback = function(step){ console.log("test"); };
 
-      traveler.run.bind(traveler, function(dt){ console.log("test"); }).should.Throw(Error, /Invalid TimeTraveler: ['steps must be an integer']/);
+      traveler.run.bind(traveler, callback).should.Throw(Error, /Invalid TimeTraveler: ['steps must be an integer']/);
     });
 
-    it('calls the given callback each interval', function(){
+    it('calls the given callback for each time interval', function(){
       var settings = {starts_at: "2016-10-31", steps: 5, time_units: "days", time_scale: 1};
       var traveler = new TimeTraveler(settings);
       var counter = 0;
@@ -119,6 +120,29 @@ describe('TimeTraveler', function(){
       traveler.run(function(dt){ counter++; });
 
       counter.should.equal(5);
+    });
+  });
+
+  describe('#runAsync(callback)', function(){
+    it('rejects Promise if the TimeTraveler is not valid', function(){
+      var settings = {starts_at: "2016-10-31", steps: true};
+      var traveler = new TimeTraveler(settings);
+      var callback = function(step){ };
+
+      return traveler.runAsync(callback).catch(function (error) {
+        error.message.should.equal("Invalid TimeTraveler: steps must be an integer");
+      });
+    });
+
+    it('resolve Promise after calling the given callback for each time interval', function(){
+      var settings = {starts_at: "2016-10-31", steps: 5, time_units: "days", time_scale: 1};
+      var traveler = new TimeTraveler(settings);
+      var counter = 0;
+      var callback = function(dt){ counter++; }
+
+      return traveler.runAsync(callback).then(function () {
+        counter.should.equal(5);
+      });
     });
   });
 });

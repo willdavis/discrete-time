@@ -19,8 +19,28 @@ function run(settings, callback){
   traveler.run(callback);
 }
 
+/**
+ * Creates and runs a TimeTraveler using the given settings and callback.
+ * @param {Object} settings - configuration options for the TimeTraveler object
+ * @param {TimeTravelerCallback} callback - callback function that will be called on each iteration
+ * @example
+ * var discrete_time = require('discrete-time');
+ *
+ * var settings = {starts_at: "1900-10-31", steps: 100, time_units: "years"};
+ * var callback = function(time){
+ *  console.log("Now:" + time.now.format() + " Step:" + time.step);
+ * };
+ *
+ * discrete_time.runAsync(settings, callback).then(do_other_stuff).catch(any_errors);
+ */
+function runAsync(settings, callback){
+  var traveler = new TimeTraveler(settings);
+  return traveler.runAsync(callback);
+}
+
 // export the discrete-time stuff
 module.exports = {
   run: run,
+  runAsync: runAsync,
   traveler: TimeTraveler
 };
